@@ -1,0 +1,22 @@
+{
+  "name": "jquery-parallelanimate",
+  "title": "jQuery PlarallelAnimate Plugin",
+  "description": "parallel animation plugin for jQuery.",
+  "author": "Xlune",
+  "homepage": "http://xlune.com/",
+  "version": "0.1.0-alpha",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.7",
+    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.3"
+  },
+  "scripts": {
+    "test": "grunt travis --verbose"
+  },
+  "dependencies": {}
+}
