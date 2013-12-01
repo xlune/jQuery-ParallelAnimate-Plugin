@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery ParallelAnimate Demo 001</title>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/yui/3/build/cssreset/reset-min.css" />
+<style>
+.animate-box {
+	width: 200px;
+	height: 200px;
+	position: relative;
+	background-color: gray;
+}
+.animate-box > p {
+	width:10px;
+	height:10px;
+	background-color:#F00;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="../dist/jquery.parallelanimate.min.js"></script>
+</head>
+<body>
+<!-- html tag base -->
+<div id="animate-box1" class="animate-box">
+	<p class="animate-cell" data-pa-start="1.0" data-pa-fromto="{'top':[0,150],'left':[0,150],'opacity':[1,0],'width':[10,50],'height':[10,50]}" data-pa-duration="3.5"></p>
+	<p class="animate-cell" data-pa-start="2.0" data-pa-fromto="{'top':[0,150],'left':[0,150],'opacity':[1,0],'width':[10,50],'height':[10,50]}" data-pa-duration="3.5"></p>
+	<p class="animate-cell" data-pa-start="3.0" data-pa-fromto="{'top':[0,150],'left':[0,150],'opacity':[1,0],'width':[10,50],'height':[10,50]}" data-pa-duration="3.5"></p>
+	<p class="animate-cell" data-pa-start="4.0" data-pa-fromto="{'top':[0,150],'left':[0,150],'opacity':[1,0],'width':[10,50],'height':[10,50]}" data-pa-duration="3.5"></p>
+	<p class="animate-cell" data-pa-start="5.0" data-pa-fromto="{'top':[0,150],'left':[0,150],'opacity':[1,0],'width':[10,50],'height':[10,50]}" data-pa-duration="3.5"></p>
+</div>
+<!-- javascript array base -->
+<div id="animate-box2" class="animate-box">
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+</div>
+<button id="button-play">Play</button>
+<button id="button-stop">Stop</button>
+<button id="button-pause">pause</button>
+<button id="button-resume">resume</button><br />
+<button id="button-gotoplay">gotoplay</button><input type="text" id="input-gotoplay" value="0" /><br />
+<button id="button-gotostop">gotostop</button><input type="text" id="input-gotostop" value="0" /><br />
+<script>
+	$(function() {
+		$("#animate-box1").parallelAnimate(".animate-cell", {repeat:-1});
+
+		$("#animate-box2").parallelAnimate([
+			{el:"> p:eq(0)", start:1.0, duration:3.5, fromto:{top:[0, 150], left:[0, 150], opacity:[1, 0], width:[10, 50], height:[10, 50]}},
+			{el:"> p:eq(1)", start:2.0, duration:3.5, fromto:{top:[0, 150], left:[0, 150], opacity:[1, 0], width:[10, 50], height:[10, 50]}},
+			{el:"> p:eq(2)", start:3.0, duration:3.5, fromto:{top:[0, 150], left:[0, 150], opacity:[1, 0], width:[10, 50], height:[10, 50]}},
+			{el:"> p:eq(3)", start:4.0, duration:3.5, fromto:{top:[0, 150], left:[0, 150], opacity:[1, 0], width:[10, 50], height:[10, 50]}},
+			{el:"> p:eq(4)", start:5.0, duration:3.5, fromto:{top:[0, 150], left:[0, 150], opacity:[1, 0], width:[10, 50], height:[10, 50]}}
+		], {repeat:-1});
+
+		$("#button-play").on("click", function(e){
+			e.preventDefault();
+			$("#animate-box1, #animate-box2").parallelAnimate("play");
+		});
+		$("#button-stop").on("click", function(e){
+			e.preventDefault();
+			$("#animate-box1, #animate-box2").parallelAnimate("stop");
+		});
+		$("#button-pause").on("click", function(e){
+			e.preventDefault();
+			$("#animate-box1, #animate-box2").parallelAnimate("pause");
+		});
+		$("#button-resume").on("click", function(e){
+			e.preventDefault();
+			$("#animate-box1, #animate-box2").parallelAnimate("resume");
+		});
+
+		$("#button-gotoplay").on("click", function(e){
+			e.preventDefault();
+			$("#animate-box1, #animate-box2").parallelAnimate("gotoAndPlay", parseFloat($("#input-gotoplay").val(), 10));
+		});
+		$("#button-gotostop").on("click", function(e){
+			e.preventDefault();
+			$("#animate-box1, #animate-box2").parallelAnimate("gotoAndStop", parseFloat($("#input-gotostop").val(), 10));
+		});
+
+	});
+</script>
+</body>
+</html>

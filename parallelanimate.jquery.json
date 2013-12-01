@@ -1,0 +1,36 @@
+{
+	"name": "parallelanimate",
+	"title": "jQuery ParallelAnimate",
+	"description": "parallel animation plugin for jQuery.",
+	"keywords": [
+		"jquery",
+		"parallel",
+		"animate",
+		"animation",
+		"plugins"
+	],
+	"version": "0.1.0-alpha",
+	"author": {
+		"name": "Xlune",
+		"url": "https://xlune.com"
+	},
+	"maintainers": [
+		{
+			"name": "Xlune",
+			"url": "https://xlune.com"
+		}
+	],
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://xlune.mit-license.org/"
+		}
+	],
+	"bugs": "https://github.com/xlune/jQuery-ParallelAnimate-Plugin/issues",
+	"homepage": "http://xlune.com",
+	"docs": "http://blog.xlune.com/2013/11/parallelanimate.html",
+	"download": "https://github.com/xlune/jQuery-ParallelAnimate-Plugin/archive/master.zip",
+	"dependencies": {
+		"jquery": ">=1.4"
+	}
+}
